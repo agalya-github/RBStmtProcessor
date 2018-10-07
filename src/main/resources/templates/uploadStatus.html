@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<style>
+</style>
+</head>
+<title>Rabobank Customer Statement Processor</title>
+<link rel="stylesheet" type="text/css" media="all"
+	href="/../style/styles.css" />
+<body>
+
+	<h1>Rabobank Customer Statement Processor - Output</h1>
+
+	<div th:if="${message}">
+		<P th:text="${message}" />
+	</div>
+
+	<div th:if="${failedStatements}">
+		<h4>List of invalid/ failed transactions</h4>
+		<table>
+			<tr>
+				<th>Reference</th>
+				<th>Description</th>
+				<th>Remarks</th>
+			</tr>
+			<tr th:each="failedStatement : ${failedStatements}">
+				<td th:text="${failedStatement.reference}"></td>
+				<td th:text="${failedStatement.description}"></td>
+				<td th:text="${failedStatement.remarks}"></td>
+			</tr>
+		</table>
+	</div>
+
+</body>
+</html>
